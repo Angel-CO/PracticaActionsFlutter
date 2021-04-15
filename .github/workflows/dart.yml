@@ -43,4 +43,12 @@ jobs:
       #- name: Run tests
       #  run: dart test
 
+      - name: Run-Lint
+        run: ./gradlew lint
+      #  working-directory: 
+      - name: Upload html test report
+        uses: actions/upload-artifact@v2
+        with:
+          name: lint_html_report
+          path: .github
 # This is a basic workflow to help you get started with Actions
