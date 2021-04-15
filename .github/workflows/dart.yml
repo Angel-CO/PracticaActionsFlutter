@@ -30,8 +30,8 @@ jobs:
       - run: flutter pub get
       - run: flutter test
 
-      - name: Install dependencies
-        run: dart pub get
+      #- name: Install dependencies
+      #  run: dart pub get
 
       # Uncomment this step to verify the use of 'dart format' on each commit.
       # - name: Verify formatting
