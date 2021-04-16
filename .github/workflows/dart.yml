@@ -46,17 +46,17 @@ jobs:
         uses: dorny/test-reporter@v1
         if: success() || failure()    # run this step even if previous step failed
         with:
-          name: JEST Tests            # Name of the check run which will be created
-          path: reports/jest-*.xml    # Path to test results
+          name: Tests            # Name of the check run which will be created
+          path: reports/test.xml    # Path to test results
           reporter: jest-junit        # Format of test results
 
-
-#      - name: Run-Lint
-#        run: ./gradlew lint
-#      #  working-directory: 
-#      - name: Upload html test report
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: lint_html_report
-#          path: .github
 # This is a basic workflow to help you get started with Actions
+  report:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: dorny/test-reporter@v1
+      with:
+        artifact: test-results            # artifact name
+        name: DART Tests                  # Name of the check run which will be created
+        path: '*.xml'                     # Path to test results (inside artifact .zip)
+        reporter: dart-json              # Format of test results
